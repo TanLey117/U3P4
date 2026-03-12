@@ -3,7 +3,7 @@ using U3P4.Models;
 
 namespace U3P4.Controllers
 {
-    public class CarritoControlador : Controller
+    public class CarritoController : Controller
     {
         static List<Producto> productos = new List<Producto>();
         public IActionResult Index()
