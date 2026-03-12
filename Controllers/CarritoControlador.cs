@@ -8,7 +8,7 @@ namespace U3P4.Controllers
         static List<Producto> productos = new List<Producto>();
         public IActionResult Index()
         {
-            return View();
+            return View(productos);
         }
         public IActionResult Create()
         {
