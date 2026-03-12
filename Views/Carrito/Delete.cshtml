@@ -1,0 +1,23 @@
+﻿@model U3P4.Models.Producto
+
+<h2>Eliminar Producto</h2>
+
+<p>¿Seguro que deseas eliminar este producto?</p>
+
+<div>
+    <strong>@Model.Nombre</strong> - $@Model.Precio
+</div>
+
+<form asp-action="Delete">
+
+    <input type="hidden" asp-for="Id" />
+
+    <button type="submit" class="btn btn-danger">
+        Eliminar
+    </button>
+
+    <a asp-action="Index" class="btn btn-secondary">
+        Cancelar
+    </a>
+
+</form>
