@@ -20,8 +20,19 @@ namespace U3P4.Controllers
         [HttpPost]
         public IActionResult Create(Producto p)
         {
+            List<Producto> productos;
+
+            var data = HttpContext.Session.GetString("productos");
+
+            if (data != null)
+                productos = JsonSerializer.Deserialize<List<Producto>>(data);
+            else
+                productos = new List<Producto>();
+
             p.Id = productos.Count + 1;
             productos.Add(p);
+
+            HttpContext.Session.SetString("productos", JsonSerializer.Serialize(productos));
 
             return RedirectToAction("Index");
         }
