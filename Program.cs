@@ -21,7 +21,7 @@ app.UseStaticFiles();
 app.UseRouting();
 
 //Usar sesion
-builder.Services.AddSession();
+app.UseSession();
 
 app.UseAuthorization();
 

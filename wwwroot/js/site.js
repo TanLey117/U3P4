@@ -8,7 +8,10 @@ function guardarProducto(nombre, precio) {
 
     let productos = JSON.parse(sessionStorage.getItem("productos")) || [];
 
+    let comprador = sessionStorage.getItem("comprador");
+
     productos.push({
+        comprador: comprador,
         nombre: nombre,
         precio: precio
     });
