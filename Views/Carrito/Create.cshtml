@@ -21,3 +21,34 @@
     </button>
 
 </form>
+
+<script>
+
+    function guardarProducto(nombre, precio) {
+
+        let productos = JSON.parse(sessionStorage.getItem("productos")) || [];
+
+        productos.push({
+            nombre: nombre,
+            precio: precio
+        });
+
+        sessionStorage.setItem("productos", JSON.stringify(productos));
+    }
+
+    function mostrarProductos() {
+        console.log("SessionStorage:", sessionStorage.getItem("productos"));
+    }
+
+    // Detectar envío del formulario
+    document.querySelector("form").addEventListener("submit", function() {
+
+        let nombre = document.getElementById("Nombre").value;
+        let precio = document.getElementById("Precio").value;
+
+        guardarProducto(nombre, precio);
+        mostrarProductos();
+
+    });
+
+</script>
