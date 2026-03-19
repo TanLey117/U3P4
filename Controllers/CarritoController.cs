@@ -10,6 +10,12 @@ namespace U3P4.Controllers
         static List<Producto> productos = new List<Producto>();
         public IActionResult Index()
         {
+            var data = HttpContext.Session.GetString("productos");
+
+            List<Producto> productos = data != null
+                ? JsonSerializer.Deserialize<List<Producto>>(data)
+                : new List<Producto>();
+
             return View(productos);
         }
         public IActionResult Create()
